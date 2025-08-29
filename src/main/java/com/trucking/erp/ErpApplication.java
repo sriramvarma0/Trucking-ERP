@@ -1,4 +1,4 @@
-package com.trucking.erp.erp;
+package com.trucking.erp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

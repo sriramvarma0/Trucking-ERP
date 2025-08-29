@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Trucks</title>
+</head>
+<body>
+    <h2>Truck Management</h2>
+
+    <form action="/admin/trucks" method="post">
+        <label>Truck Name:</label>
+        <input type="text" name="name" required><br>
+        <label>Registration Number:</label>
+        <input type="text" name="registrationNumber" required><br>
+        <label>Capacity:</label>
+        <input type="number" name="capacity" required><br>
+        <button type="submit">Add Truck</button>
+    </form>
+
+    <h3>Truck List</h3>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Registration Number</th>
+            <th>Capacity</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="truck : ${trucks}">
+            <td th:text="${truck.id}"></td>
+            <td th:text="${truck.name}"></td>
+            <td th:text="${truck.registrationNumber}"></td>
+            <td th:text="${truck.capacity}"></td>
+            <td>
+                <a th:href="@{'/admin/trucks/delete/' + ${truck.id}}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
